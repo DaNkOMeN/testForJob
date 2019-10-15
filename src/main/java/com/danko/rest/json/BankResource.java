@@ -17,9 +17,11 @@ public class BankResource {
     @Inject
     BankService service;
 
+
+
     @POST
-    @Produces("application/json")
-    @Consumes("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Path("/add/{clientName}/{clientPhoneNumber}/{clientPassportNumber}/{clientMoneyNumber}")
     public Response addNewAccount(@PathParam("clientName")  String clientName,
                                               @PathParam("clientPhoneNumber")String clientPhoneNumber,
@@ -33,25 +35,25 @@ public class BankResource {
     }
 
     @GET
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/getAll")
     public Response getAccounts(){
         return Response.ok(service.getAllAccounts()).build();
     }
 
     @DELETE
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/delete/{clientName}/{clientPassportNumber}")
     public Response deleteAccount(@PathParam("clientName")  String clientName,
                                               @PathParam("clientPassportNumber")String clientPassportNumber){
         if (service.search(clientName , clientPassportNumber)!= null)
-            return Response.ok(service.deleteSelectAccounts(clientName ,  clientPassportNumber)).build();
+            return Response.ok(service.deleteSelectAccounts(clientName ,  clientPassportNumber)).status(200).build();
             else return Response.status(400).entity("Данного клиента нет в базе данных банка").build();
 
     }
 
     @POST
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/addMoney/{clientName}/{clientPassportNumber}/{money}")
     public Response addMoneyToCLient(@PathParam("clientName") String clientName,
                                      @PathParam("clientPassportNumber") String clientPassportNumber,
@@ -63,7 +65,7 @@ public class BankResource {
     }
 
     @POST
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/removeMoney/{clientName}/{clientPassportNumber}/{money}")
     public Response removeMoneyFromCLient(@PathParam("clientName") String clientName,
                                      @PathParam("clientPassportNumber") String clientPassportNumber,
@@ -77,7 +79,7 @@ public class BankResource {
     }
 
     @POST
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/fromFirstToLast/{firstClientName}/{firstClientPassportNumber}/{secondClientName}/{secondClientPassportNumber}/{money}")
     public Response addMoneyFromFirstToLast(@PathParam("firstClientName") String fClientName,
                                             @PathParam("firstClientPassportNumber") String fClientPassportNumber,

@@ -1,6 +1,7 @@
 package com.danko.rest.Services;
 
 import com.danko.rest.beans.Account;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -11,6 +12,7 @@ import java.util.Map;
 
 @ApplicationScoped
 public class BankService {
+
 
     private Map<Integer, Account> accountMap = new LinkedHashMap<>(){{
         put(0, new Account("Danko", "123414", "123", 0));

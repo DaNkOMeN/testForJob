@@ -100,51 +100,70 @@
 <body>
 
 <div class="banner lead">
-    Your new Cloud-Native application is ready!
+    Программа по переводу средств "Банк"
 </div>
 
 <div class="container">
     <div class="left-column">
-        <p class="lead"> Congratulations, you have created a new Quarkus application.</p>
+        <p class="lead"> Добрый день.</p>
+        <h3>Функциональность программы представлена 5 методами</h3>
+        <h3>Программу можно запустить 3 способами:1) сборкой мавен проекта 2)java -jar krista-test-1.0-SNAPSHOT-runner.jar </h3>
+        <h2>Получение всех клиентов, находящихся внутри БД</h2>
 
-        <h2>Why do you see this?</h2>
+        <p>localhost:8080/bank/getAll</p>
 
-        <p>This page is served by Quarkus. The source is in
-            <code>src/main/resources/META-INF/resources/index.html</code>.</p>
+        <h2>Добавление нового клиента</h2>
 
-        <h2>What can I do from here?</h2>
-
-        <p>If not already done, run the application in <em>dev mode</em> using: <code>mvn compile quarkus:dev</code>.
+        <p>localhost:8080/bank/add/{clientName}/{clientPhoneNumber}/{clientPassportNumber}/{clientMoneyNumber},
+            где clientPhoneNumber</code>
         </p>
         <ul>
-            <li>Add REST resources, Servlets, functions and other services in <code>src/main/java</code>.</li>
-            <li>Your static assets are located in <code>src/main/resources/META-INF/resources</code>.</li>
-            <li>Configure your application in <code>src/main/resources/application.properties</code>.
-            </li>
+            <li>clientName - имя клиента.</li>
+            <li>clientPhoneNumber - номер телефона клиента</li>
+            <li>clientPassportNumber - номер паспорта клиента</li>
+            <li>clientMoneyNumber - количество денег клиента</li>
         </ul>
 
-        <h2>How do I get rid of this page?</h2>
-        <p>Just delete the <code>src/main/resources/META-INF/resources/index.html</code> file.</p>
+        <h2>Удаление клиента</h2>
+        <p>localhost:8080/bank/delete/{clientName}/{clientPassportNumber},
+            где clientPhoneNumber</code>
+        </p>
+        <ul>
+            <li>clientName - имя клиента.</li>
+            <li>clientPassportNumber - номер паспорта клиента</li>
+        </ul>
+
+        <h2>Добавление денег клиенту</h2>
+        <p>localhost:8080/bank/addMoney/{clientName}/{clientPassportNumber}/{money},
+            <li>clientName - имя клиента</li>
+            <li>clientPassportNumber - номер паспорта клиента</li>
+            <li>money - количество добавляемых денег</li>
+        </p>
+
+        <h2>Уменьшение денег у клиента</h2>
+        <p>localhost:8080/bank/removeMoney/{clientName}/{clientPassportNumber}/{money},
+
+        </p>
+        <ul>
+            <li>clientName - имя клиента</li>
+            <li>clientPassportNumber - номер паспорта клиента</li>
+            <li>money - количество убавляемых денег</li>
+        </ul>
+
+
+        <h2>Передача денег от одного клиента другому</h2>
+        <p>localhost:8080/bank/fromFirstToLast/{firstClientName}/{firstClientPassportNumber}/{secondClientName}/{secondClientPassportNumber}/{money},
+
+        </p>
+        <ul>
+            <li>firstClientName - имя клиента, которых передает</li>
+            <li>firstClientPassportNumber - номер паспорта клиента, который передает</li>
+            <li>secondClientName - имя клиента, который получает.</li>
+            <li>secondClientPassportNumber - номер паспорта клиента, который получает</li>
+            <li>money - количество передаваемых денег</li>
+        </ul>
     </div>
-    <div class="right-column">
-        <div class="right-section">
-            <h3>Application</h3>
-            <ul>
-                <li>GroupId: com.danko</li>
-                <li>ArtifactId: krista-test</li>
-                <li>Version: 1.0-SNAPSHOT</li>
-                <li>Quarkus Version: 0.23.2</li>
-            </ul>
-        </div>
-        <div class="right-section">
-            <h3>Next steps</h3>
-            <ul>
-                <li><a href="https://quarkus.io/guides/maven-tooling.html" target="_blank">Setup your IDE</a></li>
-                <li><a href="https://quarkus.io/guides/getting-started-guide.html" target="_blank">Getting started</a></li>
-                <li><a href="https://quarkus.io" target="_blank">Quarkus Web Site</a></li>
-            </ul>
-        </div>
-    </div>
+
 </div>
 
 

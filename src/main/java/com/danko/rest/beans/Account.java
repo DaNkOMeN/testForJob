@@ -1,7 +1,10 @@
 package com.danko.rest.beans;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import java.util.Objects;
 
+@RegisterForReflection
 public class Account {
     private String clientName;
     private String clientPhoneNumber;
